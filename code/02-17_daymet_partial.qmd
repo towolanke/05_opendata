@@ -53,7 +53,7 @@ The data contains the following columns:
   - **lon**: the longitude (in degrees) of the location  
   - **strength_gtex**: cotton fiber strength (in g/tex)
 
-# EDA  
+# EDA  - Exploratory Data Analysis
 ```{r}
 summary(field)
 ```
@@ -76,10 +76,8 @@ What is the statistical distribution of fiber strength?
 ```{r fiber strength}
 ggplot(data = field,
        aes(x = strength_gtex)
-       
        ) + 
   geom_density()
-
 ```
 
 ```{r}
@@ -142,7 +140,7 @@ daymet_one = download_daymet(site = field$site[1],
                              lon = field$lon[1],
                              start = field$year[1],
                              end = field$year[1],
-                             simplify = T # to obtain data in table format
+                             simplify = T # to obtain data output in table format
                              )
 
 daymet_one
@@ -157,7 +155,7 @@ daymet_one %>%
   pivot_wider(names_from = measurement,
               values_from = value)
 
-# pivoted wider made it possoible to have 365 data count based on 7 data variables
+# pivoted wider made it possible to have 365 data count based on 7 data variables
 ```
 How many rows above? Why?  
 

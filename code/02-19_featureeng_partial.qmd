@@ -41,7 +41,9 @@ summary(fieldweather)
 Let's create some density plots to explore the weather data distributions.  
 ```{r}
 fieldweather %>%
-  pivot_longer(cols = dayl_s:vp_pa) %>%
+  pivot_longer(cols = dayl_s:vp_pa) %>% # slicing from column dayl_s to vp_pa
+  
+  # density map
   ggplot(aes(x = value)) +
   geom_density() +
   facet_wrap(~name, scales = "free")
@@ -51,7 +53,9 @@ fieldweather %>%
 # Feature engineering  
 Let's take another look at the data at hand:
 ```{r}
-fieldweather
+
+fieldweather 
+
 ```
 
 Currently, we have weather data for each site-year at a **daily** time interval.  
